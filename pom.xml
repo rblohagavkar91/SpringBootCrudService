@@ -5,7 +5,10 @@
   <groupId>com.rahul.springboot.rest</groupId>
   <artifactId>SpringBootAssignment</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>Sample Assignment</name>
+  <packaging>war</packaging>
+  <name>SpringBootAssignment</name>
+  <description>Crud Service in Spring Boot</description>
+  
   <url>http://maven.apache.org</url>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -15,7 +18,7 @@
 		<properties>
 			<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 			<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-			<start-class>com.package.name.CourseApiDataApplication</start-class>
+			<start-class>com.rahul.springboot.rest.UserDirectoryApplication</start-class>
 			<java.version>1.8</java.version>
 		</properties>
 	<dependencies>
