@@ -41,9 +41,9 @@ public class UserDirectoryController {
 	public ResponseEntity<UserInfo> getUserInfo(@PathVariable(value = "id") String id)
 			throws ResourceNotFoundException {
 		
-		UserInfo employee = userRepository.findByuserId(id)
-				.orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + id));
-		return ResponseEntity.ok().body(employee);
+		UserInfo user = userRepository.findByuserId(id)
+				.orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + id));
+		return ResponseEntity.ok().body(user);
 	}
 	
 	@RequestMapping(method=RequestMethod.PUT,value = "/userdetails/update/{id}")
@@ -69,55 +69,4 @@ public class UserDirectoryController {
 		return response;
 	}
 	
-//	@RequestMapping("/userdetails/{id}")
-//	public UserInfo getUserInfo(@PathVariable String id) throws Exception
-//	{	
-//		Optional<UserInfo> user =  userService.getUserInfo(id);
-//		if(!user.isPresent())
-//			throw new Exception("Could not find User with id- " + id);
-//		return user.get();
-//	}
-//	
-//	
-//	@RequestMapping(method=RequestMethod.DELETE,value = "/userdetails/delete/{id}")
-//	public void deleteUser(@PathVariable String id, @RequestBody UserInfo userInfo) throws Exception
-//	{
-//		Optional<UserInfo> user =  userService.getUserInfo(id);
-//		if(!user.isPresent())
-//			throw new Exception("Could not find User with id- " + id);
-//		userService.deleteUser(id,userInfo);
-//	}
-//	
-//	@RequestMapping(method=RequestMethod.PUT,value = "/userdetails/update/{id}")
-//	public UserInfo updateUserDetails(@PathVariable String id, @RequestBody UserInfo userInfo) throws Exception 
-//	{
-//		Optional<UserInfo> newUser =  userService.getUserInfo(id);
-//		if (!newUser.isPresent())
-//			throw new Exception("Could not find User with id- " + id);
-//		
-//		/* IMPORTANT - To prevent the overiding of the existing value of the variables in the database, 
-//		 * if that variable is not coming in the @RequestBody annotation object. */	
-//		if(userInfo.getEmailId() == null || userInfo.getEmailId().isEmpty())
-//			userInfo.setEmailId(newUser.get().getEmailId());
-//		if(userInfo.getDepartment() == null || userInfo.getDepartment().isEmpty())
-//			userInfo.setDepartment(newUser.get().getDepartment());
-//		
-//		// Required for the "where" clause in the sql query template.
-//		userInfo.setUserId(id);
-//		
-//		return userService.updateUserDetails(id,userInfo);
-//	}
-//	
-//	@RequestMapping(method=RequestMethod.POST,value = "/userdetails/add")
-//	public UserInfo addUser(@RequestBody UserInfo userInfo)
-//	{
-//		return userService.addUser(userInfo);
-//	}
-//	
-//	
-//	@RequestMapping("/userdetails")
-//	public List<UserInfo> getUsers()
-//	{	
-//		return userService.getUsers();
-//	}
 }
